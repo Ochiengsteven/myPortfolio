@@ -43,3 +43,83 @@ form.addEventListener('submit', (event) => {
     formText.insertAdjacentElement('afterend', errorMessage);
   }
 });
+
+const popupContainer = document.querySelector('.popup-container');
+const seeProjectBtn = document.querySelector('.btn2');
+
+seeProjectBtn.addEventListener('click', () => {
+  // add blur class to body element
+  document.body.classList.add('blur');
+
+  // pop-up card
+  const popupCard = document.createElement('div');
+  popupCard.classList.add('popup-card');
+
+  // close pop-up card
+  const closePop = document.createElement('div');
+  closePop.classList.add('closePop');
+
+  const closePopBtn = document.createElement('img');
+  closePopBtn.src = 'Disabled.png';
+  closePop.appendChild(closePopBtn);
+  popupCard.appendChild(closePop);
+
+  // set pop-up card dimensions based on screen size
+  if (window.innerWidth < 768) {
+    popupCard.style.width = '100%';
+    popupCard.style.height = '100%';
+  } else {
+    popupCard.style.width = '70%';
+    popupCard.style.height = '85%';
+  }
+
+  // image element and set source
+  const img = document.createElement('img');
+  img.src = 'desktop-pop.png';
+  popupCard.appendChild(img);
+
+  // container for tech stack buttons
+  const techStackContainer = document.createElement('div');
+  techStackContainer.classList.add('tech-stack-container');
+
+  // tech stack buttons and append to container
+  const techStackBtns = ['Ruby on Rails', 'CSS', 'JavaScript', 'HTML', 'React'];
+  techStackBtns.forEach((tech) => {
+    const btn = document.createElement('button');
+    btn.textContent = tech;
+    techStackContainer.appendChild(btn);
+  });
+  popupCard.appendChild(techStackContainer);
+
+  // title and description elements
+  const title = document.createElement('h2');
+  title.textContent = 'Multi-Post Stories Gain+Glory';
+  popupCard.appendChild(title);
+
+  const description = document.createElement('p');
+  description.textContent = 'This project is a multi-post story platform that allows users to and share their own stories with others. It was built using Ruby on Rails, CSS, JavaScript, HTML, and React.';
+  popupCard.appendChild(description);
+
+  // container for live and visit site buttons
+  const liveVisitContainer = document.createElement('div');
+  liveVisitContainer.classList.add('live-visit-container');
+
+  // live and visit site buttons and append to container
+  const liveBtn = document.createElement('button');
+  liveBtn.textContent = 'Show Live';
+  const visitBtn = document.createElement('button');
+  visitBtn.textContent = 'Visit Site';
+  liveVisitContainer.appendChild(liveBtn);
+  liveVisitContainer.appendChild(visitBtn);
+  popupCard.appendChild(liveVisitContainer);
+
+  // append pop-up card to popup container
+  popupContainer.appendChild(popupCard);
+
+  // add event listener to closePopBtn
+  closePopBtn.addEventListener('click', () => {
+    // remove blur class from body element
+    document.body.classList.remove('blur');
+    popupContainer.removeChild(popupCard);
+  });
+});
