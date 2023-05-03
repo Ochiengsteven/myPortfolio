@@ -177,6 +177,11 @@ seeProjectBtns.forEach((btn) => {
     img.src = 'desktop-pop.png';
     popupCard.appendChild(img);
 
+    // title and description elements
+    const title = document.createElement('h2');
+    title.textContent = 'Multi-Post Stories Gain+Glory';
+    popupCard.appendChild(title);
+
     // container for tech stack buttons
     const techStackContainer = document.createElement('div');
     techStackContainer.classList.add('tech-stack-container');
@@ -189,11 +194,6 @@ seeProjectBtns.forEach((btn) => {
       techStackContainer.appendChild(btn);
     });
     popupCard.appendChild(techStackContainer);
-
-    // title and description elements
-    const title = document.createElement('h2');
-    title.textContent = 'Multi-Post Stories Gain+Glory';
-    popupCard.appendChild(title);
 
     const description = document.createElement('p');
     description.textContent = 'This project is a multi-post story platform that allows users to and share their own stories with others. It was built using Ruby on Rails, CSS, JavaScript, HTML, and React.';
