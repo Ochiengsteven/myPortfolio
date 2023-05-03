@@ -105,10 +105,18 @@ seeProjectBtn.addEventListener('click', () => {
   liveVisitContainer.classList.add('live-visit-container');
 
   // live and visit site buttons and append to container
-  const liveBtn = document.createElement('button');
-  liveBtn.textContent = 'Show Live';
-  const visitBtn = document.createElement('button');
-  visitBtn.textContent = 'Visit Site';
+  const liveHTML = `
+  <div class="liveBtn">
+    <button>Show Live<img src= "icon-live.png"></button>
+  </div>`;
+  const visitHTML = `
+  <div class="liveBtn">
+    <button>Visit Site<img src= "icon-source.png"></button>
+  </div>`;
+  const liveBtn = document.createElement('div');
+  liveBtn.innerHTML = liveHTML;
+  const visitBtn = document.createElement('div');
+  visitBtn.innerHTML = visitHTML;
   liveVisitContainer.appendChild(liveBtn);
   liveVisitContainer.appendChild(visitBtn);
   popupCard.appendChild(liveVisitContainer);
